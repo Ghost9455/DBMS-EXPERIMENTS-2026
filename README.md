@@ -1,380 +1,405 @@
-# 📚 DBMS-EXPERIMENTS-2026
+# DBMS LAB EXPERIMENTS 1–10
 
-### Database Management Systems Laboratory Practicals Using MySQL
+## Introduction
 
-Welcome to **DBMS-EXPERIMENTS-2026**!
+This repository contains documentation for Database Management System (DBMS) laboratory experiments. It covers ER diagrams, relational schemas, SQL queries, joins, views, stored procedures, triggers, normalization, transactions, indexing, and query optimization.
 
-This repository contains SQL source code and practical implementations for Database Management Systems (DBMS) laboratory experiments using MySQL.
+## Software Requirements
 
-The repository covers essential DBMS concepts, including database design, ER diagrams, relational schemas, SQL operations, aggregate functions, views, recursive Common Table Expressions (CTEs), stored procedures, triggers, transaction management, and database constraints.
-
-The purpose of this repository is to organize DBMS practical solutions in a structured format for learning, practice, and academic reference.
-
----
-
-## 📂 Repository Structure
-
-```text
-DBMS-EXPERIMENTS-2026/
-│
-├── Experiment-01/
-│   └── experiment_01.sql
-│
-├── Experiment-02/
-│   └── experiment_02.sql
-│
-├── Experiment-03/
-│   └── experiment_03.sql
-│
-├── Experiment-04/
-│   └── experiment_04.sql
-│
-├── Experiment-05/
-│   └── experiment_05.sql
-│
-├── Experiment-06/
-│   └── experiment_06.sql
-│
-└── README.md
-```
+* MySQL 8.0+
+* MySQL Workbench or another compatible SQL editor
+* A computer with a working MySQL database server
 
 ---
 
-# 🧪 Experiments
+# EXPERIMENT 1: ER DIAGRAM FOR AN INDIAN E-COMMERCE PLATFORM
 
-## Experiment 01: ER Diagram Design for an E-Commerce Platform
+## Aim
 
-### Aim
-To design an Entity-Relationship (ER) diagram for an Indian e-commerce platform, identifying entities, attributes, keys, relationships, cardinalities, weak entities, specialization, and participation constraints.
+To design an Entity-Relationship (ER) diagram for an Indian e-commerce platform.
 
-### Topics Covered
-- Entity-Relationship modeling
-- Entities and attributes
-- Primary keys
-- Composite attributes
-- Multivalued attributes
-- Weak entities
-- Relationships and cardinalities
-- Participation constraints
-- Specialization of entities
-- Disjoint specialization
+## Concepts Covered
 
-### Main Entities
-- Customer
-- Product
-- Order
-- Order Item
-- Seller
-- Category
-- Payment
-- Delivery
-- Address
+* Entities and attributes
+* Primary keys
+* Composite and multivalued attributes
+* Weak entities
+* Product specialization
+* Participation constraints
+* Relationships and cardinality
 
-### Learning Outcome
-Understand how to represent an e-commerce system using an ER diagram and identify relationships and constraints between entities.
+## Procedure
 
-**Source Code:** `Experiment-01/experiment_01.sql`
+1. Identify the entities required for the e-commerce platform.
+2. List the attributes of each entity.
+3. Mark primary keys and identify composite or multivalued attributes.
+4. Identify weak entities and specialization where appropriate.
+5. Define relationships, cardinalities, and participation constraints.
+6. Draw and review the ER diagram.
+
+## Expected Output
+
+A complete ER diagram showing Customer, Product, Order, OrderItem, Seller, Category, Payment, Delivery, and Address entities with their attributes, keys, relationships, and constraints.
+
+## Result
+
+The ER model for an Indian e-commerce platform is designed.
 
 ---
 
-## Experiment 02: Relational Schema and Table Creation
+# EXPERIMENT 2: ER MODEL TO RELATIONAL SCHEMA
 
-### Aim
-To convert an ER diagram for an e-commerce platform into a relational schema and implement it using MySQL CREATE TABLE statements.
+## Aim
 
-### Topics Covered
-- Relational schema design
-- CREATE DATABASE
-- CREATE TABLE
-- Primary keys
-- Foreign keys
-- NOT NULL constraints
-- UNIQUE constraints
-- ON DELETE CASCADE
-- ON DELETE SET NULL
-- Inserting sample data
-- Referential integrity
-- Testing constraint violations
+To convert an ER diagram into a relational schema and implement it using MySQL.
 
-### Main Tables
-- Customer
-- Seller
-- Category
-- Address
-- Product
-- Orders
-- Order Item
-- Payment
-- Delivery
+## Concepts Covered
 
-### Learning Outcome
-Understand how an ER model is converted into relational tables and how constraints maintain data consistency and referential integrity.
+* Relational schema
+* CREATE TABLE
+* Primary and foreign keys
+* NOT NULL and UNIQUE constraints
+* ON DELETE CASCADE
+* ON DELETE SET NULL
+* Referential integrity
 
-**Source Code:** `Experiment-02/experiment_02.sql`
+## Procedure
+
+1. Convert each strong entity into a table.
+2. Map relationships and weak entities into suitable tables.
+3. Define primary keys and foreign keys.
+4. Apply NOT NULL, UNIQUE, and referential actions where required.
+5. Insert sample records.
+6. Attempt an invalid reference to demonstrate referential integrity.
+
+## Expected Output
+
+Tables are created with the specified constraints. Valid sample data is inserted, while invalid foreign-key references are rejected.
+
+## Result
+
+The ER model is converted into a relational schema, and referential integrity is demonstrated.
 
 ---
 
-## Experiment 03: Database Creation and SQL Operations
+# EXPERIMENT 3: EMPLOYEE, DEPARTMENT, AND PROJECT QUERIES
 
-### Aim
-To establish the database structure and perform the SQL operations defined in the experiment source file.
+## Aim
 
-### Topics Covered
-Refer to the SQL source file for the exact operations and concepts implemented in this experiment.
+To create an Employee–Department–Project database and practice basic SQL queries.
 
-### Learning Outcome
-Practice database creation, table operations, and SQL queries as implemented in the experiment.
+## Requirements
 
-**Source Code:** `Experiment-03/experiment_03.sql`
+Insert at least 30 employees across 5 departments and 8 projects.
 
----
+## Concepts Covered
 
-## Experiment 04: SQL Queries and Database Operations
+* SELECT and projection
+* WHERE clause
+* Aggregate functions
+* GROUP BY and HAVING
+* CASE expressions
+* ORDER BY
 
-### Aim
-To execute the SQL operations and queries defined in the experiment source file.
+## Procedure
 
-### Topics Covered
-Refer to the SQL source file for the exact queries and database concepts implemented in this experiment.
+1. Create Employee, Department, and Project tables with appropriate keys.
+2. Insert sample data meeting the minimum record requirements.
+3. Retrieve selected columns and filter rows.
+4. Apply aggregate functions such as COUNT, AVG, SUM, MIN, and MAX.
+5. Group results and filter groups using HAVING.
+6. Use CASE expressions to classify results.
+7. Sort results using ORDER BY.
 
-### Learning Outcome
-Develop practical experience in executing SQL statements and working with relational database tables.
+## Expected Output
 
-**Source Code:** `Experiment-04/experiment_04.sql`
+SQL queries display employee details, department and project summaries, aggregate values, conditional labels, and sorted records.
 
----
+## Result
 
-## Experiment 05: SQL Views and Recursive CTE
-
-### Aim
-To create and manipulate SQL views for department salary summaries and employee hierarchies, test the updatability of views, and implement recursive Common Table Expressions to display employee reporting chains.
-
-### Topics Covered
-
-#### 1. Department Salary Summary View
-- CREATE VIEW
-- LEFT JOIN
-- GROUP BY
-- COUNT()
-- SUM()
-- AVG()
-- MAX()
-- MIN()
-
-#### 2. Querying Views
-- Retrieving department salary summaries
-- Filtering departments by average salary
-- Using WHERE conditions with views
-
-#### 3. View Updatability
-- Updating data through an updatable view
-- Testing non-updatable views
-- Understanding restrictions on view updates
-
-#### 4. Employee Hierarchy
-- Employee-manager relationships
-- Self-referencing foreign keys
-- LEFT JOIN
-- Creating an employee hierarchy view
-
-#### 5. Recursive Common Table Expressions
-- WITH RECURSIVE
-- Anchor member
-- Recursive member
-- UNION ALL
-- Reporting levels
-- Employee reporting chains
-- Recursive queries for a single employee
-
-### Learning Outcome
-Understand how views simplify complex queries and how recursive CTEs represent hierarchical relationships in a database.
-
-### Database Dependency
-This experiment uses the database created in Experiment 03.
-
-**Source Code:** `Experiment-05/experiment_05.sql`
+Basic SQL retrieval, filtering, aggregation, grouping, and sorting are demonstrated.
 
 ---
 
-## Experiment 06: Stored Procedures and Database Triggers
+# EXPERIMENT 4: JOINS, SUBQUERIES, AND EXECUTION PLANS
 
-### Aim
-To create a stored procedure for transferring employees between departments with validation and error handling, and implement database triggers for salary validation and audit logging.
+## Aim
 
-### Topics Covered
+To perform advanced SQL queries using the Employee schema and compare query execution plans.
 
-#### 1. Stored Procedure
-- CREATE PROCEDURE
-- Input parameters
-- DECLARE variables
-- SELECT INTO
-- IF...THEN...ELSE
-- Employee existence validation
-- Department existence validation
-- Checking the employee's current department
+## Concepts Covered
 
-#### 2. Transaction Management
-- START TRANSACTION
-- COMMIT
-- ROLLBACK
-- Transaction error handling
-- SQL exception handlers
+* INNER JOIN
+* LEFT JOIN
+* Self-join
+* Three-table join
+* Correlated subqueries
+* EXISTS
+* Simulated INTERSECT and EXCEPT
+* EXPLAIN
 
-#### 3. Salary Validation Triggers
-- BEFORE INSERT trigger
-- BEFORE UPDATE trigger
-- Validating employee salaries
-- Rejecting salaries below ₹15,000
-- Handling invalid inputs
+## Procedure
 
-#### 4. Salary Audit Logging
-- Creating an audit table
-- AFTER UPDATE trigger
-- OLD and NEW values
-- Recording previous and updated salaries
-- Recording timestamps
-- Tracking salary changes
+1. Use the Employee, Department, and Project tables.
+2. Retrieve matching rows using INNER JOIN.
+3. Display matching and non-matching left-side rows using LEFT JOIN.
+4. Use a self-join to compare employees or show reporting relationships.
+5. Join three tables in a single query.
+6. Write correlated subqueries and EXISTS conditions.
+7. Simulate INTERSECT and EXCEPT using MySQL-compatible queries.
+8. Use EXPLAIN to inspect query execution plans.
 
-#### 5. Testing and Edge Cases
-- Successful employee transfers
-- Employee does not exist
-- Department does not exist
-- Employee already belongs to the requested department
-- Valid salary insertion
-- Invalid salary insertion
-- Invalid salary updates
-- Multiple salary changes
-- Unchanged salary values
+## Expected Output
 
-### Learning Outcome
-Understand how stored procedures automate database operations, how transactions maintain consistency, and how triggers enforce validation rules and record changes.
+Queries return the appropriate matching, non-matching, and grouped records. EXPLAIN displays the optimizer's selected execution plan.
 
-### Database Dependency
-This experiment uses the database created in Experiment 03.
+## Result
 
-**Source Code:** `Experiment-06/experiment_06.sql`
+Joins, subqueries, set-operation alternatives, and execution-plan inspection are demonstrated.
 
 ---
 
-# 🛠️ Technologies Used
+# EXPERIMENT 5: VIEWS AND RECURSIVE CTE
 
-- **Database:** MySQL
-- **Query Language:** SQL
-- **Database Concepts:** Relational Database Management Systems
-- **Database Design:** Entity-Relationship Modeling
-- **Advanced SQL:** Views and Recursive CTEs
-- **Procedural SQL:** Stored Procedures
-- **Automation:** Database Triggers
-- **Data Integrity:** Primary Keys, Foreign Keys, and Constraints
-- **Version Control:** Git and GitHub
+## Aim
 
----
+To create SQL views, test view updatability, and use a recursive CTE to display employee reporting chains.
 
-# ⚙️ How to Run the Experiments
+## Concepts Covered
 
-Follow these steps to execute the SQL files.
+* CREATE VIEW
+* Aggregate views
+* Employee hierarchy
+* View updatability
+* Recursive Common Table Expressions (CTEs)
 
-### Step 1: Install MySQL
-Install MySQL Server and a compatible SQL client, such as MySQL Workbench.
+## Procedure
 
-### Step 2: Clone the Repository
+1. Create a department salary summary view.
+2. Create an employee hierarchy view showing employees and their managers.
+3. Create a basic employee view and test whether an update through the view is allowed.
+4. Use a recursive CTE to trace reporting levels from employees without managers.
+5. Query the views and recursive results.
 
-Open a terminal and run:
+## Expected Output
 
-```bash
-git clone https://github.com/Ghost9455/DBMS-EXPERIMENTS-2026.git
-```
+The department summary displays employee counts and salary statistics. The hierarchy view shows employee-manager relationships. The recursive CTE assigns levels to employees in the reporting chain.
 
-### Step 3: Open the Project
+## Result
 
-Navigate to the repository directory:
-
-```bash
-cd DBMS-EXPERIMENTS-2026
-```
-
-### Step 4: Open the SQL File
-
-Open the required experiment folder and load its `.sql` file into MySQL Workbench.
-
-### Step 5: Check Database Dependencies
-
-Before executing an experiment, check whether it depends on a database or tables created by an earlier experiment.
-
-Experiments 05 and 06 use the database created in Experiment 03.
-
-Execute the required setup scripts first.
-
-### Step 6: Execute the Queries
-
-Run the SQL statements in the appropriate order.
-
-Review the query results and error messages to verify the behavior of the statements.
-
-### Step 7: Verify the Results
-
-Use SELECT statements to inspect tables, views, and audit records where applicable.
+Views, view updatability, and recursive CTEs are demonstrated.
 
 ---
 
-# 📋 Important Notes
+# EXPERIMENT 6: STORED PROCEDURE, TRIGGERS, AND AUDIT LOG
 
-- Execute the SQL scripts in the correct order when dependencies exist.
-- Check the database name before running a script.
-- Ensure that the required tables and columns exist.
-- Some experiments modify or delete records.
-- Use a test database when experimenting with UPDATE and DELETE statements.
-- Back up important data before running scripts that modify database records.
-- Stored procedures and triggers may require delimiter changes in MySQL clients.
-- The actual implementation of each experiment is defined by its SQL source file.
+## Aim
 
----
+To create a stored procedure for employee department transfers and triggers for salary validation and audit logging.
 
-# 🎯 Learning Outcomes
+## Concepts Covered
 
-After completing these practicals, students should be able to:
+* Stored procedures
+* Input parameters
+* Validation and error handling
+* BEFORE INSERT and BEFORE UPDATE triggers
+* AFTER UPDATE trigger
+* Audit logging
 
-- Design ER diagrams for real-world applications.
-- Convert ER diagrams into relational schemas.
-- Create and manage relational database tables.
-- Define primary keys and foreign keys.
-- Apply database constraints.
-- Maintain referential integrity.
-- Insert and manipulate database records.
-- Write and execute SQL queries.
-- Create and query SQL views.
-- Use aggregate functions.
-- Understand view updatability.
-- Represent employee hierarchies using recursive CTEs.
-- Develop stored procedures with input parameters.
-- Implement transaction management.
-- Handle errors in stored procedures.
-- Create triggers for data validation.
-- Maintain audit logs for database changes.
-- Organize database practicals using GitHub.
+## Procedure
 
----
+1. Create Department, Project, Employee, and Employee_Audit tables.
+2. Create `transfer_employee(emp_id, new_dept_id)` with validation.
+3. Reject transfers for invalid employee or department IDs.
+4. Prevent invalid salary values using triggers.
+5. Record old and new salary values in the audit table after a successful salary update.
+6. Test valid and invalid procedure calls and salary changes.
 
-# 📁 Repository Organization
+## Expected Output
 
-Each experiment is organized separately to make the source code easy to find, read, execute, and maintain.
+A valid transfer updates the employee's department. Invalid employee IDs, invalid department IDs, duplicate transfers where prohibited, and non-positive salaries produce validation errors. Successful salary changes create audit records containing old and new salaries.
 
-The repository is intended for academic learning, DBMS laboratory practice, and reference.
+## Result
+
+Stored procedures, validation triggers, and salary audit logging are demonstrated.
+
+## Note
+
+Exact error messages depend on the SIGNAL messages defined in the SQL script.
 
 ---
 
-# 👨‍💻 Author
+# EXPERIMENT 7: DATABASE NORMALIZATION
 
-**Surya Dev Singh**
+## Aim
 
-**Project:** DBMS-EXPERIMENTS-2026
+To identify functional dependencies and normalize a denormalized Sales table from UNF through 1NF, 2NF, 3NF, and BCNF.
 
-**Subject:** Database Management Systems Laboratory
+## Concepts Covered
+
+* Unnormalized Form (UNF)
+* First Normal Form (1NF)
+* Second Normal Form (2NF)
+* Third Normal Form (3NF)
+* Boyce-Codd Normal Form (BCNF)
+* Functional dependencies
+* Lossless join
+* Dependency preservation
+
+## Procedure
+
+1. Inspect the original denormalized Sales table.
+2. Identify repeating groups and functional dependencies.
+3. Convert the table to 1NF by storing atomic values.
+4. Remove partial dependencies to achieve 2NF.
+5. Remove inappropriate transitive dependencies to achieve 3NF.
+6. Check the functional dependencies to determine whether BCNF is satisfied.
+7. Reconstruct the original data through joins and verify losslessness.
+
+## Expected Output
+
+The data is split into related sale, customer, salesperson, product, and sale-item tables. A lossless reconstruction should preserve the original sample rows.
+
+## Result
+
+Normalization is used to reduce redundancy and improve data consistency.
+
+## Note
+
+BCNF and dependency preservation must be checked against the functional dependencies specified for the actual schema.
 
 ---
 
-# ⭐ Support
+# EXPERIMENT 8: TRANSACTIONS AND CONCURRENCY CONTROL
 
-If you find this repository useful for learning DBMS and MySQL, consider giving it a star on GitHub.
+## Aim
 
-Thank you for visiting **DBMS-EXPERIMENTS-2026**!
+To implement banking-style transactions and demonstrate transaction control, isolation levels, and concurrency anomalies.
+
+## Concepts Covered
+
+* BEGIN / START TRANSACTION
+* COMMIT
+* ROLLBACK
+* SAVEPOINT
+* Transaction isolation levels
+* Concurrency anomalies
+
+## Procedure
+
+1. Create a bank account table and insert sample balances.
+2. Start a transaction and perform a transfer between accounts.
+3. Commit a valid transfer.
+4. Perform a partial or invalid transfer and roll back uncommitted changes.
+5. Create a savepoint and roll back to it.
+6. Set and inspect transaction isolation levels.
+7. Use two separate database sessions to demonstrate concurrency behavior.
+
+## Expected Output
+
+Committed changes remain saved. Rolled-back changes are undone. Rolling back to a savepoint undoes only the changes made after that savepoint. Isolation levels are displayed by the database.
+
+## Result
+
+Transaction control and concurrency control are demonstrated.
+
+## Note
+
+Concurrency anomalies require coordinated execution in two separate sessions. Use a test database.
+
+---
+
+# EXPERIMENT 9: RAILWAY BOOKING QUERY PERFORMANCE AND INDEXING
+
+## Aim
+
+To benchmark query performance before and after creating single-column and composite indexes on a railway booking table.
+
+## Requirements
+
+Create a railway booking dataset with at least 5,000 records.
+
+## Concepts Covered
+
+* Dataset generation
+* Single-column indexes
+* Composite indexes
+* EXPLAIN
+* EXPLAIN ANALYZE, where supported
+* Query execution plans
+* Performance comparison
+
+## Procedure
+
+1. Create the Railway_Booking table.
+2. Insert at least 5,000 sample records.
+3. Run selected queries before indexing.
+4. Inspect execution plans using EXPLAIN.
+5. Create suitable single-column and composite indexes.
+6. Run the same queries again and compare plans and timing.
+
+## Expected Output
+
+The dataset contains at least 5,000 records. EXPLAIN displays the optimizer's execution plan before and after indexing. The optimizer may choose an index when it estimates that the index is beneficial.
+
+## Result
+
+The impact of indexing on query execution plans and performance is analyzed.
+
+## Note
+
+Execution plans and timings depend on MySQL version, statistics, data distribution, and hardware.
+
+---
+
+# EXPERIMENT 10: SQL QUERY OPTIMIZATION
+
+## Aim
+
+To generate a dataset with at least 10,000 rows, analyze five slow queries, and optimize them using indexing and query rewriting.
+
+## Concepts Covered
+
+* Query execution analysis
+* EXPLAIN
+* Indexing
+* Composite indexes
+* Query rewriting
+* Execution-time comparison
+* Aggregation optimization
+
+## Procedure
+
+1. Create a customer-orders table.
+2. Generate at least 10,000 sample rows.
+3. Select five queries for performance analysis.
+4. Inspect their execution plans and execution times.
+5. Optimize queries using suitable indexes or equivalent query rewrites.
+6. Execute the queries again and compare results and performance.
+
+## Expected Output
+
+The dataset contains at least 10,000 rows. Five queries are analyzed and optimized. The optimized queries should preserve the intended results; performance gains depend on the optimizer and data distribution.
+
+## Result
+
+SQL query optimization using indexes and query rewriting is demonstrated.
+
+## Note
+
+Use EXPLAIN ANALYZE only on a MySQL version that supports it. Actual timing values may vary between environments.
+
+---
+
+# GENERAL CONCLUSION
+
+All ten DBMS laboratory experiments cover database design, relational modeling, SQL querying, joins, views, stored procedures, triggers, normalization, transactions, indexing, and query optimization.
+
+These experiments help develop practical understanding of database creation, integrity constraints, data manipulation, transaction management, and performance analysis.
+
+## General Notes
+
+* Use the appropriate SQL script for each experiment when available.
+* Verify outputs by executing queries in the target database.
+* Actual query results and execution plans may vary depending on the data and database environment.
+* Use a test database when running scripts that create or drop tables.
